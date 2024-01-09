@@ -1,5 +1,6 @@
 package com.base.starbucks_ui_clone
 
+import android.graphics.drawable.shapes.OvalShape
 import android.graphics.fonts.FontStyle
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -8,6 +9,8 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -44,6 +47,8 @@ class Home : ComponentActivity() {
                         fontStyle = androidx.compose.ui.text.font.FontStyle.Italic,
                         modifier = Modifier.padding(end = 135.dp)
                     )
+                    Spacer(modifier = Modifier.height(50.dp))
+                    SearchBox(modifier = Modifier)
                 }
             }
         }
@@ -81,6 +86,39 @@ fun TopSection(
     }
 }
 
+
+@Composable
+fun SearchBox(modifier:Modifier,){
+    val hexcolor="00704A"
+
+    Box(
+        modifier= modifier
+            .width(300.dp)
+            .height(60.dp)
+            .background(
+                color = Color.LightGray,
+                shape = RoundedCornerShape(25.dp)
+            )
+    ){
+          Row(
+              modifier = Modifier.fillMaxWidth(),
+              verticalAlignment = Alignment.CenterVertically
+          ){
+              Image(
+                  painterResource(id = R.drawable.baseline_search_241),
+                  contentDescription = null,
+                  modifier= modifier
+                      .size(50.dp)
+                      .padding(start = 5.dp, top = 5.dp)
+              )
+              Spacer(modifier = modifier.width(20.dp))
+              Text(text = "Search",
+                  color = Color.Green,
+                  fontSize = 25.sp
+                  )
+          }
+    }
+}
 
 
 
